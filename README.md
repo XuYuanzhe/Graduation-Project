@@ -3,6 +3,10 @@
 * source blog_env/bin/activate
 * pip install -r requirements.txt
 * deactivate  # 退出虚拟环境
+* python manage.py makemigrations
+* python manage.py migrate
+* python manage.py sqlmigrate blog 0001
+* python manage.py createsuperuser
 
 # run server
 python manage.py runserver
