@@ -8,6 +8,7 @@
 * python manage.py sqlmigrate blog 0001
 * python manage.py createsuperuser
     >username: xuyuanzhe
+    
     >password: ************
 
 # run server
