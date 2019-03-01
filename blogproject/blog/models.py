@@ -1,6 +1,9 @@
+import markdown
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 
 class Category(models.Model):
@@ -33,12 +36,29 @@ class Post(models.Model):
     # 文章标签
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User)
+    views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={'pk': self.pk})
+
+    # 自增计数文章阅读量 可绑定用户防止同一用户频繁访问
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
+
+    # 重写save方法自动生成文章摘要
+    def save(self, *args, **kwargs):
+        if not self.excerpt:
+            md = markdown.Markdown(extension_configs=[
+                'markdown.extensions.extra',
+                'markdown.extensions.codehilite',
+            ])
+            self.excerpt = strip_tags(md.convert(self.body))[:54]
+        # 调用父类的 save 方法将数据保存到数据库中
+        super(Post, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-created_time', 'title']
