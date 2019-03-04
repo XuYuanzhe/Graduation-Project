@@ -130,4 +130,5 @@ venv.bak/
 *.via
 *.tmp
 *.err
-*.xml
+
+.dea/workspace.xml
