@@ -102,3 +102,31 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+##filter databfile、sln file##
+*.idea
+*.iml
+*.mdb
+*.ldb
+*.sln
+
+##class file##
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# compression file
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.via
+*.tmp
+*.err
