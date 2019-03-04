@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.html import strip_tags
 
 
+# 分类是确定好的发帖只能从已有分类里选择 且必须选择
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
