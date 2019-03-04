@@ -13,3 +13,8 @@
 
 # run server
 python manage.py runserver
+
+
+
+删除烦人的.idea/workspace.xml
+git rm -r --cached .idea
