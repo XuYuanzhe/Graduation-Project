@@ -11,6 +11,8 @@
     
     >password: ************
 
+* python manage.py rebuild_index 建立搜索的索引文件
+
 # run server
 python manage.py runserver
 
