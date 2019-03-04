@@ -130,3 +130,4 @@ venv.bak/
 *.via
 *.tmp
 *.err
+*.xml
