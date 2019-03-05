@@ -21,7 +21,7 @@ class IndexView(ListView):
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
     # 类视图已经做好了分页这件事，直接指定 paginate_by 其值代表每一页包含多少篇文章
-    paginate_by = 10
+    paginate_by = 8
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -206,5 +206,19 @@ def search(request):
     return render(request, 'blog/index.html', {'error_msg': error_msg,
                                                'post_list': post_list})
 
+
+# 关于
+def about(request):
+    return render(request, 'blog/about.html')
+
+
+# 联系
+def contact(request):
+    return render(request, 'blog/contact.html')
+
+
+# 博客
+def full_width(request):
+    return render(request, 'blog/full-width.html')
 # 该作者的所有文章
 
