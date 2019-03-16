@@ -21,7 +21,7 @@ class IndexView(ListView):
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
     # 类视图已经做好了分页这件事，直接指定 paginate_by 其值代表每一页包含多少篇文章
-    paginate_by = 8
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
